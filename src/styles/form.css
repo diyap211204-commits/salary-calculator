@@ -1,0 +1,87 @@
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 1.4rem 1.5rem; box-shadow: var(--shadow); }
+.sec-head { display: flex; gap: 0.85rem; align-items: flex-start; margin-bottom: 1.1rem; }
+.sec-head .num {
+  flex: none; width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--navy2), var(--blue)); color: #fff; font-weight: 800; font-size: 0.95rem;
+  box-shadow: 0 8px 14px -8px var(--blue);
+}
+.sec-head h2 { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.01em; }
+.sec-head p { color: var(--muted); font-size: 0.82rem; margin-top: 1px; }
+
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem 1rem; }
+.fields.three { grid-template-columns: repeat(3, 1fr); }
+.full { grid-column: 1 / -1; }
+.field { display: flex; flex-direction: column; gap: 0.38rem; font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+.field input, .field select, .field textarea {
+  padding: 0.72rem 0.9rem; border-radius: 12px; border: 1.5px solid var(--line); background: var(--soft);
+  font-size: 0.95rem; font-weight: 500; color: var(--ink); width: 100%; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--sky); background: #fff; outline: none; box-shadow: 0 0 0 4px rgba(255, 140, 40, 0.2);
+}
+.field textarea { resize: vertical; }
+.field .bad { border-color: var(--danger); }
+.field small { color: var(--danger); font-size: 0.75rem; font-weight: 500; }
+.field small.hint { color: var(--muted); }
+
+.money { position: relative; }
+.money span { position: absolute; top: 50%; transform: translateY(-50%); left: 0.9rem; color: var(--muted); font-weight: 700; pointer-events: none; }
+.money input { padding-left: 1.9rem; }
+.money.suffix span { left: auto; right: 0.9rem; font-size: 0.8rem; }
+.money.suffix input { padding-left: 0.9rem; padding-right: 2.6rem; }
+.note { margin-top: 0.9rem; color: var(--muted); font-size: 0.8rem; }
+
+/* position dropdown */
+.field select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 2.6rem;
+  background: var(--soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2366748f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 0.95rem center;
+}
+.field select:focus { background-color: #fff; }
+.pos-info {
+  display: flex; align-items: center; gap: 0.85rem; margin: 0.9rem 0 1.1rem; padding: 0.85rem 1rem;
+  border-radius: 14px; background: var(--tint); border: 1px solid #f6d6bb;
+}
+.pos-info .av {
+  flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--navy2), var(--blue)); color: #fff; font-weight: 800;
+}
+.pos-info div { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pos-info b { font-weight: 800; }
+.pos-info small { color: var(--muted); font-size: 0.78rem; }
+.pos-rate { font-weight: 800; color: var(--blue); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pos-rate small { color: var(--muted); font-weight: 500; font-size: 0.75rem; }
+.field.wage { margin-top: 0.2rem; }
+
+/* add / deduct toggle and quick amounts */
+.toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; padding: 4px; border-radius: 14px; background: #f6ece3; margin-bottom: 1rem; }
+.toggle input { position: absolute; opacity: 0; }
+.toggle span { display: block; text-align: center; padding: 0.65rem 0.5rem; border-radius: 11px; font-weight: 700; font-size: 0.88rem; color: var(--muted); cursor: pointer; transition: all 0.2s; }
+.toggle label:hover span { color: var(--ink); }
+.toggle input:checked + span { background: #fff; color: var(--ink); box-shadow: 0 2px 8px rgba(29, 23, 18, 0.12); }
+.toggle label:first-child input:checked + span { color: var(--ok); }
+.toggle label:last-child input:checked + span { color: var(--danger); }
+.toggle input:focus-visible + span { outline: 3px solid var(--sky); outline-offset: 2px; }
+.quick { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.quick button { padding: 0.45rem 0.95rem; border-radius: 99px; border: 1.5px solid var(--line); background: #fff; font-weight: 700; font-size: 0.85rem; transition: all 0.15s; }
+.quick button:hover { border-color: var(--blue); background: var(--tint); color: var(--navy2); transform: translateY(-1px); }
+.quick .clear { color: var(--muted); border-style: dashed; }
+
+/* toggle switches */
+.switches { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.switch { display: flex; align-items: center; gap: 0.65rem; padding: 0.7rem 0.85rem; border: 1.5px solid var(--line); border-radius: 12px; background: var(--soft); font-size: 0.86rem; font-weight: 600; color: var(--ink); cursor: pointer; }
+.switch input { position: absolute; opacity: 0; }
+.sw { flex: none; position: relative; width: 38px; height: 22px; border-radius: 99px; background: #d9cfc5; transition: background 0.2s; }
+.sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform 0.2s; }
+.switch input:checked + .sw { background: var(--blue); }
+.switch input:checked + .sw::after { transform: translateX(16px); }
+.switch input:focus-visible + .sw { outline: 3px solid var(--sky); outline-offset: 2px; }
+
+.error { margin-top: 1rem; background: #fdecec; color: #a12727; padding: 0.75rem 0.95rem; border-radius: 12px; font-size: 0.88rem; font-weight: 500; }
+
+.btn { padding: 0.75rem 1.3rem; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; font-weight: 700; transition: transform 0.15s, background 0.15s; }
+.btn:hover { transform: translateY(-1px); background: var(--tint); }
+.link { background: none; border: 0; color: var(--blue); font-weight: 700; font-size: 0.85rem; }
+
+@media (max-width: 560px) {
+  .fields, .fields.three, .switches { grid-template-columns: 1fr; }
+}

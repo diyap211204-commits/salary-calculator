@@ -1,0 +1,11 @@
+.page { max-width: 1160px; margin: 0 auto; padding: 1.4rem 1.2rem 3.5rem; }
+.layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.5rem; margin-top: 1.5rem; align-items: start; }
+.form { display: flex; flex-direction: column; gap: 1.1rem; }
+.actions { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; }
+
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+@media print {
+  .page { padding: 0; max-width: none; }
+  .form { display: none; }
+  .layout { display: block; margin: 0; }
+}

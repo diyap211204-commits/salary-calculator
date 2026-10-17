@@ -1,0 +1,11 @@
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); line-height: 1.45;
+  background: radial-gradient(900px 480px at 100% 0%, #ffe6cf, transparent 60%), var(--bg);
+  min-height: 100vh;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+@media print { body { background: #fff; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
